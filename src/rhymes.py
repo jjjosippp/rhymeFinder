@@ -2,7 +2,7 @@ import requests
 import sys
 
 def get_rhymes(word: str) -> list[str]:
-    params = {'function': 'getRhymes', 'word': word, 'lang': 'en', 'maxResults': 100}
+    params = {'function': 'getRhymes', 'word': word, 'lang': 'en', 'maxResults': 256}
     result = requests.get('https://rhymebrain.com/talk', params=params).json()
     return [x['word'] for x in result if x['score'] >= 100]
 
